@@ -84,7 +84,7 @@
       flex-shrink: 0;
     }
 
-        .auth-mode-switch {
+    .auth-mode-switch {
       display: flex;
       gap: 6px;
       margin-bottom: 14px;
@@ -125,19 +125,19 @@
       margin-bottom: 6px;
       font-size: 12px;
     }
-            .comm-btn-group {
+    .comm-btn-group {
       display: inline-flex;
       flex-wrap: wrap;
       gap: 4px;
     }
-        .guide-lookup-box {
+    .guide-lookup-box {
       background: var(--surface-soft);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 10px;
       margin-bottom: 10px;
     }
-        .legal-sub-folder-row {
+    .legal-sub-folder-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -191,7 +191,7 @@
       font-size: 12.5px;
     }
 
-        .admin-only-key-block.hidden-non-admin {
+    .admin-only-key-block.hidden-non-admin {
       display: none !important;
     }
 
@@ -343,7 +343,7 @@
       color: #fff;
       border-color: rgba(255, 255, 255, 0.25);
     }
-    .nav-body { padding: 8px; overflow-y: auto; flex: 1; }
+    .nav-body { padding: 8px; overflow-y: auto; flex: 1; padding-bottom: 58px; }
     .nav-sec-title {
       font-size: 11px;
       text-transform: uppercase;
@@ -422,7 +422,7 @@
       flex-shrink: 0;
     }
 
-    .workspace { flex: 1; min-width: 0; padding: 12px; overflow-y: auto; }
+    .workspace { flex: 1; min-width: 0; padding: 12px; padding-bottom: 64px; overflow-y: auto; }
     .path-company-box {
       display: flex;
       align-items: center;
@@ -499,7 +499,6 @@
     .kpi .lbl { font-size: 11px; color: var(--muted); font-weight: 600; }
     .kpi .val { font-size: 15px; font-weight: 700; color: var(--primary); margin-top: 2px; word-break: break-word; }
 
-    /* Thanh tab ngang bên trên: mặc định ẩn vì đã có menu dọc bên trái, bật được trong Cài đặt & Tùy chọn */
     .tabs {
       display: none;
       gap: 6px;
@@ -642,7 +641,6 @@
     .select-with-add { display: flex; gap: 4px; align-items: center; }
     .select-with-add select { flex: 1; min-width: 0; }
 
-    /* Cột bên phải đồng bộ nền xanh - tím giống menu bên trái */
     .right-drawer {
       width: 300px;
       min-width: 300px;
@@ -671,7 +669,7 @@
       color: #fff;
       border-color: rgba(255, 255, 255, 0.25);
     }
-    .right-body { padding: 10px; overflow-y: auto; flex: 1; }
+    .right-body { padding: 10px; overflow-y: auto; flex: 1; padding-bottom: 58px; }
     .right-drawer .note-item {
       background: rgba(255, 255, 255, 0.12);
       border-color: rgba(255, 255, 255, 0.2);
@@ -937,6 +935,10 @@
 
           <div class="nav-sec-title" style="margin-top:10px">Mở rộng menu</div>
           <div class="menu-ext-box hide-when-mini">
+            <button type="button" class="menu-ext-item" onclick="triggerCreateStandardDb()">
+              <span>📊 Tạo CSDL chuẩn (Sheet)</span>
+              <span>NEW</span>
+            </button>
             <button type="button" id="menuExtKeyBtn" class="menu-ext-item admin-only-key-block" onclick="switchTab('account_keys'); if (window.innerWidth <= 820) hideLeftNav();">
               <span>🔑 Đăng ký & Cấp Key</span>
               <span>›</span>
@@ -998,7 +1000,6 @@
 
         <div class="kpis" id="kpiRow"></div>
 
-        <!-- Thanh tab ngang mặc định ẩn để mở rộng không gian; có thể bật/tắt trong Cài đặt & Tùy chọn bên phải -->
         <div class="tabs" id="topTabsBar">
           <button class="tab-btn active" data-tab="checklist" onclick="switchTab('checklist')">1. Checklist & Tiến độ</button>
           <button class="tab-btn" data-tab="contracts" onclick="switchTab('contracts')">2. Hợp đồng & Thanh toán</button>
@@ -1132,7 +1133,7 @@
           </div>
         </section>
 
-        <!-- TAB 3: TÁCH RIÊNG 3 KHỐI ĐỘC LẬP (CÔNG VĂN ĐẾN - CÔNG VĂN ĐI - GIAO VIỆC) + TÊN DỰ ÁN + MÃ LIÊN KẾT CHÉO -->
+        <!-- TAB 3: TÁCH RIÊNG 3 KHỐI ĐỘC LẬP -->
         <section class="panel" id="tab-tasks" style="display:none">
           <div class="panel-top">
             <h3>Tách biệt 3 khối: Công văn đến • Công văn đi • Giao việc hàng ngày</h3>
@@ -1483,7 +1484,7 @@
           </div>
         </section>
 
-        <!-- TAB 11: DANH SÁCH NHÂN SỰ (ADMIN) & GỬI CẢNH BÁO / GIAO VIỆC -->
+        <!-- TAB 11: DANH SÁCH NHÂN SỰ & GỬI CẢNH BÁO -->
         <section class="panel" id="tab-staff_alerts" style="display:none">
           <div class="panel-top">
             <h3>Danh sách Nhân sự & Gửi cảnh báo chậm tiến độ / Giao việc / Việc mới</h3>
@@ -1529,7 +1530,7 @@
           <div id="internalChatLog"></div>
         </section>
 
-        <!-- TAB 12: QUẢN LÝ BẤT ĐỘNG SẢN & THỐNG KÊ TỒN KHO / TÌNH TRẠNG DỞ DANG -->
+        <!-- TAB 12: QUẢN LÝ BẤT ĐỘNG SẢN & TỒN KHO -->
         <section class="panel" id="tab-re_inventory" style="display:none">
           <div class="panel-top">
             <h3>Quản lý Bất động sản, Thống kê Tồn kho, Kê khai Giá trị & Tình trạng Dở dang</h3>
@@ -1586,7 +1587,6 @@
             </table>
           </div>
         </section>
-
 
         <!-- TAB 13: ĐĂNG KÝ TÀI KHOẢN, CẤP KEY & CÂY TÀI KHOẢN -->
         <section class="panel" id="tab-account_keys" style="display:none">
@@ -1699,7 +1699,8 @@
 
               <div class="muted" style="margin-top:6px;margin-bottom:4px"><b>URL đồng bộ thiết bị (Apps Script / API):</b></div>
               <input id="cloudSyncUrlInput" type="url" placeholder="https://script.google.com/macros/s/.../exec" onchange="saveCloudSyncUrl(this.value)" />
-              <button class="sm" style="width:100%;margin-bottom:8px" onclick="syncCloudNow(true)">🔄 Đồng bộ ngay</button>
+              <button class="sm" style="width:100%;margin-bottom:6px" onclick="syncCloudNow(true)">🔄 Đồng bộ ngay</button>
+              <button class="primary sm" style="width:100%;margin-bottom:8px" onclick="triggerCreateStandardDb()">📊 Tạo CSDL chuẩn (Google Sheets)</button>
 
               <div id="adminDangerZone" style="border-top:1px dashed rgba(255,255,255,0.25);padding-top:8px">
                 <div class="muted" style="margin-bottom:6px">Xóa trắng toàn bộ dữ liệu (hỏi xác nhận & mật khẩu 123456):</div>
@@ -1743,6 +1744,7 @@
   <script>
     const STORAGE_KEY = 'pd_qlda_1_0_raw';
     const SYNC_URL_KEY = 'pd_qlda_1_0_sync_url';
+    const DB_META_KEY = 'pd_qlda_1_0_standard_db_meta';
     const CLEAR_PASSWORD_REQUIRED = '123456';
     const LEVELS = ['Dự án', 'Công trình', 'Hạng mục', 'Gói thầu'];
     const LEVEL_ICONS = { 'Dự án': 'DA', 'Công trình': 'CT', 'Hạng mục': 'HM', 'Gói thầu': 'GT' };
@@ -1787,7 +1789,7 @@
     const ALL_TABS = MODULE_ITEMS.map(m => m.id);
 
     const CONVERSATION_MEMORY_NOTES = [
-      'PD QLDA 1.0: Cột phải đồng bộ màu xanh-tím với menu trái, thanh tab ngang mặc định ẩn để rộng màn hình (bật được trong Cài đặt & Tùy chọn), huy hiệu tài khoản xuống hàng dưới khi màn hình hẹp, xuất/nhập .json & đồng bộ đám mây, xóa trắng khóa mật khẩu 123456.',
+      'PD QLDA 1.0: Tự động lưu & đồng bộ đám mây qua URL Apps Script, nút Tạo CSDL chuẩn (Google Sheets) ở góc dưới trái và trong Mở rộng menu.',
       'Khung 4 cấp WBS (Dự án -> Công trình -> Hạng mục -> Gói thầu), menu chuột phải, 3 vùng thu gọn/ẩn hiện trên mobile/desktop.',
       'Hợp đồng: loại HĐ tùy biến (+ Loại), dấu chấm tiền tệ, tự thêm % (10 -> 10%), ngày ký, hạn & cảnh báo hết hạn, giá trị thực hiện, mốc 90%/95%/100%, giữ lại BH/QT, thanh toán đợt này, lũy kế TT & chứng từ kèm theo.',
       'Tách 3 khối độc lập: Công văn đến, Công văn đi, Giao việc hàng ngày; có Tên dự án, Mã liên kết chéo (nhấp 1 lần lọc nhanh, click đúp sửa), file/link đính kèm, phụ trách & hỗ trợ, nguồn báo cáo, luồng TBP duyệt/sửa -> Lãnh đạo duyệt -> Ký đóng dấu/trả HS & hoàn thành.'
@@ -1795,6 +1797,7 @@
 
     let state = null;
     let ctxTargetId = null;
+    let cloudPushDebounce = null;
 
     function toggleTopTabsBar() {
       const bar = document.getElementById('topTabsBar');
@@ -1876,7 +1879,6 @@
       try {
         await fetch(url, {
           method: 'POST',
-          mode: 'no-cors',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({
             app: 'PD QLDA 1.0',
@@ -2082,7 +2084,7 @@
       localStorage.setItem(ACCOUNT_TREE_KEY, JSON.stringify(arr));
       if (state) {
         state.accountTree = arr;
-        saveState(false);
+        saveState(true);
       }
     }
 
@@ -2128,7 +2130,7 @@
 
       if (Array.isArray(state?.staff) && !state.staff.some(s => s.name === name)) {
         state.staff.push({ id: Date.now() + 1, name, role, area, phone: contact, email: '' });
-        saveState(false);
+        saveState(true);
       }
 
       document.getElementById('regName').value = '';
@@ -2155,7 +2157,7 @@
 
       if (Array.isArray(state?.staff) && !state.staff.some(s => s.name === childName)) {
         state.staff.push({ id: Date.now() + 2, name: childName, role: childRole, area: childArea, phone: '', email: '' });
-        saveState(false);
+        saveState(true);
       }
 
       document.getElementById('grantChildName').value = '';
@@ -2197,7 +2199,6 @@
       document.getElementById('loginRole').value = acc.role;
       doLogin();
     }
-
 
     function createAndGrantAccountKey() {
       if (!isCurrentSessionAdmin()) return alert('Chỉ Admin mới có quyền đăng ký và cấp Key tài khoản.');
@@ -2357,6 +2358,7 @@
     function getCloudSyncUrl() {
       return (localStorage.getItem(SYNC_URL_KEY) || state?.cloudSyncUrl || '').trim();
     }
+    window.getCloudUrl = getCloudSyncUrl;
 
     function saveCloudSyncUrl(val) {
       const clean = String(val || '').trim();
@@ -2366,6 +2368,7 @@
         saveState(false);
       }
     }
+    window.setCloudUrl = saveCloudSyncUrl;
 
     function exportJsonBackup() {
       if (!state) return;
@@ -2418,41 +2421,173 @@
       reader.readAsText(f, 'utf-8');
     }
 
-    async function syncCloudNow(showFeedback = false) {
+    async function pullCloudState(showFeedback = false) {
       const url = getCloudSyncUrl();
-      if (!url) {
-        if (showFeedback) alert('Chưa nhập URL đồng bộ đám mây trong Cài đặt & Tùy chọn. Anh vẫn có thể dùng Xuất/Nhập .json để chuyển dữ liệu giữa các thiết bị.');
-        return;
-      }
+      if (!url) return false;
       try {
-        const getResp = await fetch(url, { method: 'GET' });
+        const sep = url.includes('?') ? '&' : '?';
+        const getResp = await fetch(url + sep + 't=' + Date.now(), { method: 'GET' });
         if (getResp.ok) {
           const remoteJson = await getResp.json();
-          const remoteState = remoteJson && remoteJson.data && typeof remoteJson.data === 'object' ? remoteJson.data : remoteJson;
-          if (remoteState && Array.isArray(remoteState.nodes) && (remoteState.nodes.length > 0 || !state?.nodes?.length)) {
+          const remoteState = remoteJson && remoteJson.data && typeof remoteJson.data === 'object'
+            ? remoteJson.data
+            : (remoteJson && remoteJson.state && typeof remoteJson.state === 'object' ? remoteJson.state : remoteJson);
+          if (remoteState && typeof remoteState === 'object' && Array.isArray(remoteState.nodes)) {
             const curUser = state?.user;
-            state = { ...createRawBaselineState(), ...remoteState, user: curUser || remoteState.user };
+            state = {
+              ...createRawBaselineState(remoteState.defaultProjectType || 'Hạ tầng kỹ thuật KCN'),
+              ...remoteState,
+              cloudSyncUrl: url,
+              user: curUser || remoteState.user
+            };
             localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
             renderAll();
+            if (showFeedback) alert('Đã tải dữ liệu mới nhất từ Google Sheets.');
+            return true;
           }
         }
-      } catch (_) {}
+      } catch (err) {
+        if (showFeedback) alert('Không tải được dữ liệu từ đám mây: ' + err.message);
+      }
+      return false;
+    }
 
+    async function pushCloudState(showFeedback = false) {
+      const url = getCloudSyncUrl();
+      if (!url || !state) return false;
       try {
-        await fetch(url, {
+        const res = await fetch(url, {
           method: 'POST',
-          mode: 'no-cors',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({
             app: 'PD QLDA 1.0',
-            user: state?.user?.name || '',
+            action: 'save_state',
+            user: state?.user?.name || 'Tăng Văn Phương (Phương)',
             updatedAt: new Date().toISOString(),
+            data: state,
+            state: state
+          })
+        });
+        let ok = res.ok;
+        try {
+          const data = await res.json();
+          if (data && typeof data.ok === 'boolean') ok = data.ok;
+        } catch (_) {}
+        if (ok && showFeedback) alert('Đã lưu dữ liệu an toàn lên Google Sheets.');
+        return ok;
+      } catch (err) {
+        if (showFeedback) alert('Lỗi đẩy dữ liệu lên đám mây: ' + err.message);
+        return false;
+      }
+    }
+
+    async function syncCloudNow(showFeedback = false) {
+      const url = getCloudSyncUrl();
+      if (!url) {
+        if (showFeedback) {
+          const inputUrl = prompt(
+            'Chưa có URL đồng bộ đám mây.\nDán đường dẫn Web App Google Apps Script (https://script.google.com/macros/s/.../exec) vào đây:',
+            ''
+          );
+          if (!inputUrl || !inputUrl.trim()) return;
+          saveCloudSyncUrl(inputUrl.trim());
+          renderAll();
+        } else {
+          return;
+        }
+      }
+      await pushCloudState(false);
+      await pullCloudState(showFeedback);
+    }
+
+    function renderStandardDbBanner(db) {
+      if (!db || !db.spreadsheetUrl) return;
+      let box = document.getElementById('pdStandardDbResultBox');
+      if (!box) {
+        box = document.createElement('div');
+        box.id = 'pdStandardDbResultBox';
+        box.style.cssText = 'position:fixed;right:16px;bottom:16px;z-index:2147483647;background:#ecfdf5;border:1px solid #10b981;color:#064e3b;padding:12px 14px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.2);max-width:340px;font-size:13px;';
+        document.body.appendChild(box);
+      }
+      box.innerHTML = `
+        <div style="font-weight:700;margin-bottom:6px;">✅ Đã kết nối CSDL chuẩn (Google Sheets)</div>
+        <div style="margin-bottom:8px;word-break:break-word;">Tên file: <b>${escapeHtml(db.spreadsheetName || 'CSDL_PD_QLDA_1_0')}</b></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <a href="${escapeHtml(db.spreadsheetUrl)}" target="_blank" rel="noopener noreferrer" style="background:#059669;color:#fff;padding:6px 10px;border-radius:6px;text-decoration:none;font-weight:600;">Mở Google Sheets</a>
+          <button type="button" onclick="document.getElementById('pdStandardDbResultBox').remove()" style="background:#e5e7eb;color:#111827;border:none;padding:6px 10px;border-radius:6px;cursor:pointer;">Đóng</button>
+        </div>
+      `;
+    }
+
+    async function triggerCreateStandardDb() {
+      let url = getCloudSyncUrl();
+      if (!url) {
+        const inputUrl = prompt(
+          'Dán đường dẫn Web App Google Apps Script (https://script.google.com/macros/s/.../exec) để hệ thống tự tạo file Google Sheets chuẩn:',
+          ''
+        );
+        if (!inputUrl || !inputUrl.trim()) return;
+        saveCloudSyncUrl(inputUrl.trim());
+        url = getCloudSyncUrl();
+        renderAll();
+      }
+
+      const defaultTitle = `CSDL_PD_QLDA_1_0_${getCompanyScope() || 'BanQLDA'}`;
+      const sheetName = prompt('Nhập tên file Google Sheets chuẩn cần tạo:', defaultTitle);
+      if (sheetName === null) return;
+
+      const btn = document.getElementById('btnCreateStandardDb');
+      const oldHtml = btn ? btn.innerHTML : '';
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '⏳ Đang tạo Sheet chuẩn...';
+      }
+
+      try {
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({
+            app: 'PD QLDA 1.0',
+            action: 'create_standard_db',
+            dbName: sheetName.trim() || defaultTitle,
+            user: state?.user?.name || 'Tăng Văn Phương (Phương)',
             data: state
           })
         });
-        if (showFeedback) alert('Đã thực hiện đồng bộ dữ liệu.');
+        const data = await res.json();
+        if (data && data.ok && data.db) {
+          localStorage.setItem(DB_META_KEY, JSON.stringify(data.db));
+          renderStandardDbBanner(data.db);
+          await pushCloudState(false);
+          alert('Đã tạo xong file CSDL chuẩn: ' + data.db.spreadsheetName);
+        } else {
+          alert('Không thể tạo CSDL chuẩn: ' + (data && data.error ? data.error : 'Kiểm tra lại mã Apps Script'));
+        }
       } catch (err) {
-        if (showFeedback) alert('Chưa đồng bộ được tới URL: ' + err.message);
+        alert('Lỗi kết nối khi tạo CSDL chuẩn: ' + err.message);
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = oldHtml || '📊 Tạo CSDL chuẩn';
+        }
+      }
+    }
+
+    function ensureCreateStandardDbFloatingBtn() {
+      if (!document.body) return;
+      if (!document.getElementById('btnCreateStandardDb')) {
+        const btn = document.createElement('button');
+        btn.id = 'btnCreateStandardDb';
+        btn.type = 'button';
+        btn.innerHTML = '📊 Tạo CSDL chuẩn';
+        btn.style.cssText = 'position:fixed;left:14px;bottom:14px;z-index:2147483647;background:#047857;color:#ffffff;border:2px solid #34d399;padding:8px 13px;border-radius:8px;font-weight:700;font-size:12.5px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.32);';
+        btn.onclick = triggerCreateStandardDb;
+        document.body.appendChild(btn);
+      }
+      const savedDb = localStorage.getItem(DB_META_KEY);
+      if (savedDb && !document.getElementById('pdStandardDbResultBox')) {
+        try { renderStandardDbBanner(JSON.parse(savedDb)); } catch (_) {}
       }
     }
 
@@ -2541,7 +2676,7 @@
           }
         ],
         notes: [
-          { id: 1, text: 'PD QLDA 1.0: Đã đồng bộ màu xanh cột phải và đưa huy hiệu tài khoản xuống hàng dưới khi màn hình hẹp.', time: 'Hôm nay' }
+          { id: 1, text: 'PD QLDA 1.0: Đã tích hợp nút Tạo CSDL chuẩn (Google Sheets) và tự động lưu dữ liệu đám mây.', time: 'Hôm nay' }
         ]
       };
     }
@@ -2766,14 +2901,14 @@
       const reportDoc = prompt('Nhập tên/link công văn hoặc báo cáo hoàn thành gửi lên:', item.reportFile || item.attach || '');
       if (reportDoc !== null && reportDoc.trim() !== '') item.reportFile = reportDoc.trim();
       item.status = 'Chờ TBP duyệt';
-      saveState(); renderAll();
+      saveState(true); renderAll();
     }
 
     function tbpApprove(listKey, id) {
       const item = (state[listKey] || []).find(x => x.id === id);
       if (!item) return;
       item.status = 'Chờ Lãnh đạo duyệt';
-      saveState(); renderAll();
+      saveState(true); renderAll();
     }
 
     function requestRevision(listKey, id) {
@@ -2783,14 +2918,14 @@
       if (reason === null) return;
       if (reason.trim()) item.note = `Sửa chữa: ${reason.trim()}`;
       item.status = 'Cần sửa chữa';
-      saveState(); renderAll();
+      saveState(true); renderAll();
     }
 
     function leaderApprove(listKey, id) {
       const item = (state[listKey] || []).find(x => x.id === id);
       if (!item) return;
       item.status = 'Chờ ký/đóng dấu/trả HS';
-      saveState(); renderAll();
+      saveState(true); renderAll();
     }
 
     function signStampAndComplete(listKey, id) {
@@ -2800,7 +2935,7 @@
       if (stampInfo !== null && stampInfo.trim()) item.note = stampInfo.trim();
       item.status = 'Hoàn thành';
       if (!item.doneDate) item.doneDate = new Date().toISOString().slice(0, 10);
-      saveState(); renderAll();
+      saveState(true); renderAll();
     }
 
     function toggleDirectComplete(listKey, id, checked) {
@@ -2809,7 +2944,7 @@
       if (!canEditPersonalRecord(item)) return alert('Bạn không có quyền đổi trạng thái mục của người khác.');
       item.status = checked ? 'Hoàn thành' : 'Đang làm';
       if (checked && !item.doneDate) item.doneDate = new Date().toISOString().slice(0, 10);
-      saveState(); renderAll();
+      saveState(true); renderAll();
     }
 
     function renderApprovalButtons(listKey, item, extraBtnHtml = '') {
@@ -2897,7 +3032,7 @@
         if (field === 'status' && item.status === 'Hoàn thành' && !item.doneDate) {
           item.doneDate = new Date().toISOString().slice(0, 10);
         }
-        saveState(); renderAll();
+        saveState(true); renderAll();
       }
 
       editor.addEventListener('keydown', (e) => {
@@ -2915,7 +3050,10 @@
     function saveState(pushCloud = false) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
       if (pushCloud && getCloudSyncUrl()) {
-        syncCloudNow(false);
+        clearTimeout(cloudPushDebounce);
+        cloudPushDebounce = setTimeout(() => {
+          pushCloudState(false);
+        }, 1200);
       }
     }
 
@@ -2954,7 +3092,7 @@
       const exists = state.contractTypes.find(t => t.toLowerCase() === cleanName.toLowerCase());
       if (exists) { renderContractTypeSelect(exists); return; }
       state.contractTypes.push(cleanName);
-      saveState(); renderContractTypeSelect(cleanName);
+      saveState(true); renderContractTypeSelect(cleanName);
     }
 
     async function doLogin() {
@@ -2970,7 +3108,7 @@
         await provisionDriveStructureNow();
       }
       if (getCloudSyncUrl()) {
-        await syncCloudNow(false);
+        await pullCloudState(false);
       }
     }
 
@@ -2978,7 +3116,7 @@
       document.getElementById('appScreen').style.display = 'none';
       document.getElementById('authScreen').style.display = 'grid';
       renderStaffDatalist();
-    renderAuthAccountTreeUI();
+      renderAuthAccountTreeUI();
     }
 
     function showApp() {
@@ -2991,6 +3129,7 @@
         document.getElementById('leftNav').classList.add('collapsed');
         document.getElementById('rightDrawer').classList.add('collapsed');
       }
+      ensureCreateStandardDbFloatingBtn();
       renderAll();
     }
 
@@ -3071,7 +3210,7 @@
           row.innerHTML = `<span style="display:flex;align-items:center;gap:6px;min-width:0"><span class="node-icon">${escapeHtml(iconCode)}</span><span class="node-label">${escapeHtml(node.name)}</span></span><span class="node-tag">${escapeHtml(node.level)}</span>`;
           row.onclick = () => {
             state.selectedId = node.id;
-            saveState(); renderAll();
+            saveState(false); renderAll();
             if (window.innerWidth <= 820) document.getElementById('leftNav').classList.add('collapsed');
           };
           row.oncontextmenu = (e) => {
@@ -3111,7 +3250,7 @@
         name: name.trim(), status: 'Đang triển khai', owner: state.user.name
       });
       state.selectedId = newId;
-      saveState(); renderAll();
+      saveState(true); renderAll();
     }
 
     function addChildToSelected() {
@@ -3125,7 +3264,7 @@
       const copyId = 'n_' + Date.now();
       state.nodes.push({ ...src, id: copyId, name: src.name + ' (Bản sao)' });
       state.selectedId = copyId;
-      saveState(); renderAll();
+      saveState(true); renderAll();
     }
 
     function ctxAction(action) {
@@ -3138,19 +3277,19 @@
       if (action === 'status') {
         if (!canEditPersonalRecord(node)) return alert('Bạn chỉ được đổi trạng thái nhánh thuộc mình phụ trách.');
         const next = prompt('Nhập trạng thái mới:', node.status);
-        if (next) { node.status = next; saveState(); renderAll(); }
+        if (next) { node.status = next; saveState(true); renderAll(); }
       }
       if (action === 'rename') {
         if (!canEditPersonalRecord(node)) return alert('Bạn chỉ được đổi tên nhánh thuộc mình phụ trách.');
         const r = prompt('Tên mới:', node.name);
-        if (r) { node.name = r.trim(); saveState(); renderAll(); }
+        if (r) { node.name = r.trim(); saveState(true); renderAll(); }
       }
       if (action === 'delete') {
         if (!isAdminUser()) return alert('Nhân sự thường không có quyền xóa nhánh/dữ liệu tổng.');
         const delIds = getDescendantIds(node.id);
         state.nodes = state.nodes.filter(x => !delIds.includes(x.id));
         state.selectedId = node.parentId || (state.nodes[0] ? state.nodes[0].id : null);
-        saveState(); renderAll();
+        saveState(true); renderAll();
       }
     }
 
@@ -3172,7 +3311,7 @@
         renderAccountKeysSection();
         document.getElementById('tab-account_keys')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
-      saveState();
+      saveState(false);
     }
 
     function fmtMoney(n) { return Number(n || 0).toLocaleString('vi-VN') + ' đ'; }
@@ -3247,6 +3386,7 @@
 
     function renderAll() {
       if (!state) return;
+      ensureCreateStandardDbFloatingBtn();
       renderStaffDatalist();
       renderLeftModuleMenu();
       renderTree();
@@ -3470,7 +3610,7 @@
         `).join('') || '<div class="muted">Chưa có tin nhắn trao đổi nào.</div>';
       }
 
-      const syncModeText = getCloudSyncUrl() ? 'Đã gắn URL đồng bộ đám mây' : 'Chưa gắn URL đám mây (dùng .json hoặc localStorage)';
+      const syncModeText = getCloudSyncUrl() ? 'Đã gắn URL đồng bộ đám mây (tự động lưu)' : 'Chưa gắn URL đám mây (dùng .json hoặc localStorage)';
       document.getElementById('inspectorBox').innerHTML = `
         <div><b>Nhân sự:</b> ${escapeHtml(state.user.name)}</div>
         <div><b>Quyền:</b> ${escapeHtml(state.user.role)}</div>
@@ -3623,8 +3763,7 @@
       }
     }
 
-    const WORK_ITEM_GUIDES = {"qh_1_2000": {"title": "Quy hoạch phân khu tỷ lệ 1/2000", "stage": "Pháp lý & Chủ trương", "summary": "Xác định chức năng sử dụng đất, cơ cấu phân khu, khung hạ tầng kỹ thuật và làm cơ sở lập quy hoạch chi tiết 1/500, dự án đầu tư.", "drawingsOrDocs": ["Sơ đồ vị trí và mối liên hệ vùng", "Bản đồ hiện trạng sử dụng đất, kiến trúc, cảnh quan và đánh giá đất xây dựng", "Bản đồ hiện trạng hệ thống hạ tầng kỹ thuật (giao thông, cao độ/thoát nước, cấp điện, cấp nước, thoát nước thải, thông tin liên lạc)", "Bản đồ quy hoạch tổng mặt bằng sử dụng đất (phân khu chức năng, chỉ tiêu sử dụng đất, mật độ xây dựng, tầng cao)", "Bản đồ tổ chức không gian kiến trúc cảnh quan và thiết kế đô thị/khu chức năng", "Các bản đồ quy hoạch hạ tầng kỹ thuật (giao thông, chuẩn bị kỹ thuật/san nền, cấp điện, cấp nước, thoát nước, xử lý chất thải)"], "appraisalAndApproval": "Lập hồ sơ -> Lấy ý kiến cơ quan, tổ chức, cộng đồng dân cư liên quan -> Cơ quan chuyên môn về quy hoạch thẩm định -> UBND có thẩm quyền phê duyệt quyết định quy hoạch 1/2000."}, "qh_1_500": {"title": "Quy hoạch chi tiết xây dựng tỷ lệ 1/500", "stage": "Pháp lý & Chủ trương", "summary": "Cụ thể hóa quy hoạch phân khu 1/2000 (hoặc quy hoạch chung), xác định ranh giới từng lô đất/công trình, chỉ giới đường đỏ, chỉ giới xây dựng, cốt san nền và hạ tầng chi tiết.", "drawingsOrDocs": ["Bản đồ vị trí và giới hạn khu đất lập quy hoạch", "Bản đồ hiện trạng kiến trúc, cảnh quan, sử dụng đất và hạ tầng kỹ thuật", "Bản đồ quy hoạch tổng mặt bằng sử dụng đất (chia lô/thửa, chỉ giới đường đỏ, chỉ giới xây dựng, mật độ, hệ số sử dụng đất, tầng cao)", "Bản đồ phương án kiến trúc công trình / tổ chức không gian cảnh quan", "Bản đồ quy hoạch hệ thống giao thông và chỉ giới san nền, cao độ xây dựng", "Bản đồ quy hoạch cấp nước, cấp điện, chiếu sáng, thoát nước mưa, thoát nước thải và quản lý chất thải rắn", "Bản đồ tổng hợp đường dây, đường ống kỹ thuật (nếu có)"], "appraisalAndApproval": "Chủ đầu tư lập hồ sơ -> Lấy ý kiến các bên liên quan -> Cơ quan chuyên môn thẩm định -> UBND có thẩm quyền phê duyệt quy hoạch chi tiết 1/500."}, "gp_cap_2": {"title": "Hồ sơ Cấp phép xây dựng Công trình cấp II", "stage": "Pháp lý & Chủ trương", "summary": "Áp dụng khi công trình cấp II không thuộc trường hợp được miễn giấy phép xây dựng hoặc thuộc diện phải xin phép theo phân cấp.", "drawingsOrDocs": ["Đơn đề nghị cấp giấy phép xây dựng theo mẫu", "Giấy tờ hợp pháp về quyền sử dụng đất (hoặc văn bản giao đất/cho thuê đất/chấp thuận địa điểm theo quy định)", "Quyết định phê duyệt dự án / Báo cáo nghiên cứu khả thi đầu tư xây dựng (nếu có)", "Văn bản chấp thuận/thẩm duyệt các thủ tục chuyên ngành liên quan (PCCC, môi trường, đấu nối hạ tầng... theo quy định)", "Bản vẽ thiết kế xây dựng đã được thẩm định/phê duyệt gồm: mặt bằng công trình trên lô đất kèm sơ đồ vị trí, mặt bằng các tầng/mặt đứng/mặt cắt chủ yếu, mặt bằng và mặt cắt móng, sơ đồ đấu nối hạ tầng kỹ thuật ngoài công trình"], "appraisalAndApproval": "• Thẩm định thiết kế xây dựng triển khai sau thiết kế cơ sở: Cơ quan chuyên môn về xây dựng (đối với công trình thuộc diện thẩm định tại cơ quan chuyên môn) hoặc Chủ đầu tư tự thẩm định đối với phần thuộc thẩm quyền theo quy định.\n• Thẩm tra thiết kế: Tư vấn có đủ điều kiện năng lực thẩm tra thực hiện khi có yêu cầu của cơ quan chuyên môn hoặc chủ đầu tư.\n• Cấp phép xây dựng: Cơ quan có thẩm quyền cấp phép xây dựng theo phân cấp (UBND cấp tỉnh hoặc Sở Xây dựng / cơ quan được phân cấp tùy loại công trình và địa phương)."}, "gp_cap_3": {"title": "Công trình cấp III (Miễn/điều kiện GP, Thẩm định, Thẩm tra, Cấp phép)", "stage": "Pháp lý & Chủ trương", "summary": "Cần phân biệt rõ trường hợp công trình cấp III được miễn giấy phép xây dựng (ví dụ một số công trình thuộc dự án đầu tư công/KCN/quy hoạch đã được phê duyệt hoặc đáp ứng điều kiện miễn phép theo Luật Xây dựng) với trường hợp phải cấp phép xây dựng.", "drawingsOrDocs": ["Trường hợp được miễn GPXD (khi đủ điều kiện theo quy định): vẫn phải đảm bảo phù hợp quy hoạch, quy chuẩn/tiêu chuẩn, PCCC, môi trường và thông báo khởi công kèm hồ sơ thiết kế xây dựng cho cơ quan quản lý nhà nước trước khi khởi công", "Trường hợp phải xin GPXD cấp III: Đơn đề nghị cấp GPXD, giấy tờ đất đai hợp pháp, bản vẽ thiết kế xây dựng (mặt bằng, mặt đứng, mặt cắt, móng, đấu nối hạ tầng) và văn bản/chấp thuận liên quan theo quy định"], "appraisalAndApproval": "• Thẩm định: Cơ quan chuyên môn về xây dựng hoặc Chủ đầu tư thẩm định theo phân cấp và loại hình dự án/nguồn vốn.\n• Thẩm tra: Đơn vị tư vấn thẩm tra đủ điều kiện năng lực (khi thuộc diện thẩm tra hoặc theo yêu cầu thẩm định).\n• Cấp phép: Cơ quan có thẩm quyền cấp giấy phép xây dựng theo phân cấp tại địa phương (với công trình thuộc diện phải cấp phép)."}};
-
+    const WORK_ITEM_GUIDES = {"qh_1_2000": {"title": "Quy hoạch phân khu tỷ lệ 1/2000", "stage": "Pháp lý & Chủ trương", "summary": "Xác định chức năng sử dụng đất, cơ cấu phân khu, khung hạ tầng kỹ thuật và làm cơ sở lập quy hoạch chi tiết 1/500, dự án đầu tư.", "drawingsOrDocs": ["Sơ đồ vị trí và mối liên hệ vùng", "Bản đồ hiện trạng sử dụng đất, kiến trúc, cảnh quan và đánh giá đất xây dựng", "Bản đồ hiện trạng hệ thống hạ tầng kỹ thuật (giao thông, cao độ/thoát nước, cấp điện, cấp nước, thoát nước thải, thông tin liên lạc)", "Bản đồ quy hoạch tổng mặt bằng sử dụng đất (phân khu chức năng, chỉ tiêu sử dụng đất, mật độ xây dựng, tầng cao)", "Bản đồ tổ chức không gian kiến trúc cảnh quan và thiết kế đô thị/khu chức năng", "Các bản đồ quy hoạch hạ tầng kỹ thuật (giao thông, chuẩn bị kỹ thuật/san nền, cấp điện, cấp nước, thoát nước, xử lý chất thải)"], "appraisalAndApproval": "Lập hồ sơ -> Lấy ý kiến cơ quan, tổ chức, cộng đồng dân cư liên quan -> Cơ quan chuyên môn về quy hoạch thẩm định -> UBND có thẩm quyền phê duyệt quyết định quy hoạch 1/2000."}, "qh_1_500": {"title": "Quy hoạch chi tiết xây dựng tỷ lệ 1/500", "stage": "Pháp lý & Chủ trương", "summary": "Cụ thể hóa quy hoạch phân khu 1/2000 (hoặc quy hoạch chung), xác định ranh giới từng lô đất/công trình, chỉ giới đường đỏ, chỉ giới xây dựng, cốt san nền và hạ tầng chi tiết.", "drawingsOrDocs": ["Bản đồ vị trí và giới hạn khu đất lập quy hoạch", "Bản đồ hiện trạng kiến trúc, cảnh quan, sử dụng đất và hạ tầng kỹ thuật", "Bản đồ quy hoạch tổng mặt bằng sử dụng đất (chia lô/thửa, chỉ giới đường đỏ, chỉ giới xây dựng, mật độ, hệ số sử dụng đất, tầng cao)", "Bản đồ phương án kiến trúc công trình / tổ chức không gian cảnh quan", "Bản đồ quy hoạch hệ thống giao thông và chỉ giới san nền, cao độ xây dựng", "Bản đồ quy hoạch cấp nước, cấp điện, chiếu sáng, thoát nước mưa, thoát nước thải và quản lý chất thải rắn", "Bản đồ tổng hợp đường dây, đường ống kỹ thuật (nếu có)"], "appraisalAndApproval": "Chủ đầu tư lập hồ sơ -> Lấy ý kiến các bên liên quan -> Cơ quan chuyên môn thẩm định -> UBND có thẩm quyền phê duyệt quy hoạch chi tiết 1/500."}, "gp_cap_2": {"title": "Hồ sơ Cấp phép xây dựng Công trình cấp II", "stage": "Pháp lý & Chủ trương", "summary": "Áp dụng khi công trình cấp II không thuộc trường hợp được miễn giấy phép xây dựng hoặc thuộc diện phải xin phép theo phân cấp.", "drawingsOrDocs": ["Đơn đề nghị cấp giấy phép xây dựng theo mẫu", "Giấy tờ hợp pháp về quyền sử dụng đất (nặc văn bản giao đất/cho thuê đất/chấp thuận địa điểm theo quy định)", "Quyết định phê duyệt dự án / Báo cáo nghiên cứu khả thi đầu tư xây dựng (nếu có)", "Văn bản chấp thuận/thẩm duyệt các thủ tục chuyên ngành liên quan (PCCC, môi trường, đấu nối hạ tầng... theo quy định)", "Bản vẽ thiết kế xây dựng đã được thẩm định/phê duyệt gồm: mặt bằng công trình trên lô đất kèm sơ đồ vị trí, mặt bằng các tầng/mặt đứng/mặt cắt chủ yếu, mặt bằng và mặt cắt móng, sơ đồ đấu nối hạ tầng kỹ thuật ngoài công trình"], "appraisalAndApproval": "• Thẩm định thiết kế xây dựng triển khai sau thiết kế cơ sở: Cơ quan chuyên môn về xây dựng (đối với công trình thuộc diện thẩm định tại cơ quan chuyên môn) hoặc Chủ đầu tư tự thẩm định đối với phần thuộc thẩm quyền theo quy định.\n• Thẩm tra thiết kế: Tư vấn có đủ điều kiện năng lực thẩm tra thực hiện khi có yêu cầu của cơ quan chuyên môn hoặc chủ đầu tư.\n• Cấp phép xây dựng: Cơ quan có thẩm quyền cấp phép xây dựng theo phân cấp (UBND cấp tỉnh hoặc Sở Xây dựng / cơ quan được phân cấp tùy loại công trình và địa phương)."}, "gp_cap_3": {"title": "Công trình cấp III (Miễn/điều kiện GP, Thẩm định, Thẩm tra, Cấp phép)", "stage": "Pháp lý & Chủ trương", "summary": "Cần phân biệt rõ trường hợp công trình cấp III được miễn giấy phép xây dựng (ví dụ một số công trình thuộc dự án đầu tư công/KCN/quy hoạch đã được phê duyệt hoặc đáp ứng điều kiện miễn phép theo Luật Xây dựng) với trường hợp phải cấp phép xây dựng.", "drawingsOrDocs": ["Trường hợp được miễn GPXD (khi đủ điều kiện theo quy định): vẫn phải đảm bảo phù hợp quy hoạch, quy chuẩn/tiêu chuẩn, PCCC, môi trường và thông báo khởi công kèm hồ sơ thiết kế xây dựng cho cơ quan quản lý nhà nước trước khi khởi công", "Trường hợp phải xin GPXD cấp III: Đơn đề nghị cấp GPXD, giấy tờ đất đai hợp pháp, bản vẽ thiết kế xây dựng (mặt bằng, mặt đứng, mặt cắt, móng, đấu nối hạ tầng) và văn bản/chấp thuận liên quan theo quy định"], "appraisalAndApproval": "• Thẩm định: Cơ quan chuyên môn về xây dựng hoặc Chủ đầu tư thẩm định theo phân cấp và loại hình dự án/nguồn vốn.\n• Thẩm tra: Đơn vị tư vấn thẩm tra đủ điều kiện năng lực (khi thuộc diện thẩm tra hoặc theo yêu cầu thẩm định).\n• Cấp phép: Cơ quan có thẩm quyền cấp giấy phép xây dựng theo phân cấp tại địa phương (với công trình thuộc diện phải cấp phép)."}};
 
     const TAB1_SUB_OPEN_KEY = 'pd_qlda_1_0_tab1_sub_open';
 
@@ -4021,97 +4160,14 @@
       saveState(false);
     }
     renderStaffDatalist();
+    ensureCreateStandardDbFloatingBtn();
+    setInterval(ensureCreateStandardDbFloatingBtn, 1500);
     if (state && state.user) {
       showApp();
+      if (getCloudSyncUrl()) {
+        pullCloudState(false);
+      }
     }
   </script>
-  <script>
-(function mountCreateStandardDbButton() {
-  const DB_META_KEY = "PD_QLDA_STANDARD_DB_META";
-
-  window.createStandardSheetDB = async function(customName) {
-    const url = typeof window.getCloudUrl === "function" ? window.getCloudUrl() : "";
-    if (!url) {
-      alert("Vui lòng cấu hình URL Ứng dụng web (Apps Script) trước khi bấm Tạo CSDL chuẩn.");
-      return;
-    }
-
-    const btn = document.getElementById("btnCreateStandardDb");
-    const oldText = btn ? btn.innerHTML : "";
-    if (btn) {
-      btn.disabled = true;
-      btn.innerHTML = "⏳ Đang tạo Sheet chuẩn...";
-    }
-
-    try {
-      const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify({
-          action: "create_standard_db",
-          dbName: customName || "CSDL_PD_QLDA_1_0"
-        })
-      });
-      const data = await res.json();
-      if (data && data.ok && data.db) {
-        localStorage.setItem(DB_META_KEY, JSON.stringify(data.db));
-        renderStandardDbResult(data.db);
-        alert("Đã tạo xong file CSDL chuẩn: " + data.db.spreadsheetName);
-      } else {
-        alert("Không thể tạo CSDL chuẩn: " + (data.error || "Phản hồi không hợp lệ"));
-      }
-    } catch (err) {
-      alert("Lỗi kết nối khi tạo CSDL chuẩn: " + err.message);
-    } finally {
-      if (btn) {
-        btn.disabled = false;
-        btn.innerHTML = oldText || "📊 Tạo CSDL chuẩn";
-      }
-    }
-  };
-
-  function renderStandardDbResult(db) {
-    let box = document.getElementById("pdStandardDbResultBox");
-    if (!box) {
-      box = document.createElement("div");
-      box.id = "pdStandardDbResultBox";
-      box.style.cssText = "position:fixed;right:16px;bottom:16px;z-index:9999;background:#ecfdf5;border:1px solid #10b981;color:#064e3b;padding:12px 14px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.15);max-width:340px;font-size:13px;";
-      document.body.appendChild(box);
-    }
-    box.innerHTML = `
-      <div style="font-weight:700;margin-bottom:6px;">✅ Đã tạo file CSDL chuẩn</div>
-      <div style="margin-bottom:8px;word-break:break-word;">Tên file: <b>${db.spreadsheetName}</b></div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;">
-        <a href="${db.spreadsheetUrl}" target="_blank" style="background:#059669;color:#fff;padding:6px 10px;border-radius:6px;text-decoration:none;font-weight:600;">Mở Google Sheets</a>
-        <button type="button" onclick="document.getElementById('pdStandardDbResultBox').remove()" style="background:#e5e7eb;color:#111827;border:none;padding:6px 10px;border-radius:6px;cursor:pointer;">Đóng</button>
-      </div>
-    `;
-  }
-
-  function injectButton() {
-    if (document.getElementById("btnCreateStandardDb")) return;
-    const btn = document.createElement("button");
-    btn.id = "btnCreateStandardDb";
-    btn.type = "button";
-    btn.innerHTML = "📊 Tạo CSDL chuẩn";
-    btn.style.cssText = "position:fixed;left:16px;bottom:16px;z-index:9998;background:#047857;color:#ffffff;border:1px solid #10b981;padding:8px 14px;border-radius:8px;font-weight:600;font-size:13px;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.2);";
-    btn.onclick = function() {
-      const suggested = prompt("Nhập tên file Google Sheets chuẩn cần tạo:", "CSDL_PD_QLDA_1_0");
-      if (suggested !== null) {
-        window.createStandardSheetDB(suggested);
-      }
-    };
-    document.body.appendChild(btn);
-
-    const savedDb = localStorage.getItem(DB_META_KEY);
-    if (savedDb) {
-      try { renderStandardDbResult(JSON.parse(savedDb)); } catch (e) {}
-    }
-  }
-
-  window.addEventListener("DOMContentLoaded", injectButton);
-  setTimeout(injectButton, 800);
-})();
-</script>
 </body>
 </html>
